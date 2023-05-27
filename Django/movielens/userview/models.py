@@ -5,12 +5,12 @@ from django.db import models
 from django.conf import settings
 
 class Movie(models.Model):
-    movieid = models.AutoField(primary_key=True)
+    movieid = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=1000, default="no title")
     year = models.IntegerField(default=0)
     genre = models.CharField(max_length=1000, default="no genre")
     director = models.CharField(max_length=1000, default="no director")
-    imdbLink = models.URLField(max_length=1000, default="https://www.imdb.com/")
+    imdblink = models.URLField(max_length=1000, default="https://www.imdb.com/")
     image = models.ImageField(upload_to='images/', default="no image")
     description = models.CharField(max_length=1000, default="no description")
 
@@ -19,7 +19,7 @@ class Movie(models.Model):
 
 
 class Rating(models.Model):
-    value = models.IntegerField()
+    value = models.FloatField()
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
