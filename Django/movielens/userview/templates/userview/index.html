@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Genres page</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+</head>
+
+<body>
+    {% include 'userview/base.html' %}
+
+<main role="main" class="container">
+    {% block content %}
+
+<!--    <div class="jumbotron" style="text-align: center;">-->
+<!--        <p></p>-->
+<!--        <h1 class="display-5">Welcome to the homepage</h1>-->
+<!--        <p class="lead">Here you can see all movies and genres from our database.</p>-->
+<!--        <p class="lead">Go to "Movies" or "Genres" page to see a list of them.</p>-->
+<!--    </div>-->
+
+    <section class="container ">
+            <div class=" bg-white p-5 rounded-lg text-center">
+
+                <h1>Welcome to our MovieLens-based web application!</h1>
+
+                <p class="lead">Our homepage is the perfect place to get started exploring our vast database of movies and genres. From here, you can easily navigate to the movies and genres pages to view a complete list of our offerings.
+                    But that's not all - we've also made it easy for you to add your own ratings to the movies you love. Simply create an account or log in, and start rating your favorite films. With your ratings, our recommendation engine will be able to provide even better recommendations for you in the future.
+                    So whether you're looking for your next favorite movie or just want to keep track of what you've watched and how much you enjoyed it, our home page is the perfect place to start.
+                </p>
+                {% load static %}
+                <img src="{% static 'img/logo.png' %}" alt="Best Movie Project">
+
+            </div>
+    </section>
+
+
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message}}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endblock %}
+</main>
+</body>
+</html>
