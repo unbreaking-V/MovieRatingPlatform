@@ -35,7 +35,7 @@
                 </style>
                 <ul class="list-group">
                     {% for movie in movies %}
-                    <li class="list-group-item"><a href="/movie/{{ movie.id }}">{{ movie.title }}</a></li>
+                    <li class="list-group-item"><a href="/movie/{{ movie.movieid }}">{{ movie.title }}</a></li>
                     {% endfor %}
                 </ul>
                 {% else %}
