@@ -33,7 +33,7 @@ def view_movie(request: HttpRequest, movie_id):
 
 def movies_view(request: HttpRequest):
     movie_list = Movie.objects.order_by('-title')
-    paginator = Paginator(movie_list, 2)  # Show n movies per page
+    paginator = Paginator(movie_list, 10)  # Show n movies per page
 
     page_number = request.GET.get('page')
     movies = paginator.get_page(page_number)
