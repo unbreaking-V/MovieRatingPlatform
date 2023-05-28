@@ -94,7 +94,7 @@ def ratings(request):
             rating_value = request.POST.get('rating')
 
             try:
-                movie = Movie.objects.get(id=movie_id)
+                movie = Movie.objects.get(movieid=movie_id)
                 rating = Rating.objects.create(value=rating_value, movie=movie, user=request.user)
                 rating.save()
             except Movie.DoesNotExist:
