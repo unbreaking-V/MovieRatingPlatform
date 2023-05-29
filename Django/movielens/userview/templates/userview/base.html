@@ -33,7 +33,6 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-
                 <li class="nav-item {% if request.path == '/home/' %}active{% endif %}">
                     <a class="nav-link" href="/home">Home</a>
                 </li>
@@ -42,6 +41,9 @@
                 </li>
                 <li class="nav-item {% if request.path == '/ratings/' %}active{% endif %}">
                     <a class="nav-link" href="/ratings">Ratings</a>
+                </li>
+                <li class="nav-item {% if request.path == '/search/' %}active{% endif %}">
+                    <a class="nav-link" href="/search">Search</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -65,6 +67,7 @@
         <div class="col-8">
             <hr class="mt-0 mb-4">
             {% block content %}
+
             {% endblock %}
         </div>
     </div>

@@ -1,20 +1,50 @@
-<body>
 {% include 'userview/base.html' %}
-{% if movie %}
-<div class="container-fluid d-flex justify-content-center align-items-center" style="background-color:#CBB26A; color:white; height: 300px; border-radius: 20px;">
-  <div class="row">
-    <div class="col-sm-12 text-center">
-        <h1 style="padding-left: 20px">{{movie.title}}</h1>
+
+{% block content %}
+{% load static %}
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            {% if movie %}
+            <div class="card">
+                <img src="{% static 'picked_movies/'|add:image_filename %}" alt="{{ movie.title }}" class="card-img-top" style="border-radius: 10px;">
+                <div class="card-body">
+                    <div class="author-block">
+                        <span>Author:</span>
+                        <span>{{ movie.director }}</span>
+                    </div>
+                    <div class="rating-block">
+                        <span>Rating:</span>
+                        <span>{{ rating_avg }}</span>
+                        &#9733;
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h1>No movies are available.</h1>
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            {% if movie %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Movie description:</h6>
+                    <p class="card-text">{{ movie.description }}</p>
+                    <div class="details-block">
+                        <p><strong>Year:</strong> {{ movie.year }}</p>
+                        <p><strong>Genres:</strong> {{ movie.genre }}</p>
+                        <p><strong>IMDb Link:</strong> <a href="{{ movie.imdblink }}" target="_blank">{{ movie.imdblink }}</a></p>
+
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h1>No movies are available.</h1>
+            {% endif %}
+        </div>
     </div>
-  </div>
 </div>
 
-{% else %}
-   <h1 style="padding-left: 20px">No movies are available.</h1>
-{% endif %}
-
-
-</body>
-
-
-
+{% endblock %}

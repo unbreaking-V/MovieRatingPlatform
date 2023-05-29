@@ -9,4 +9,6 @@ urlpatterns = [
     path("login/", views.user_login, name="login"),
     path('logout/', views.logout_request, name='logout'),
     path('ratings/', views.ratings, name='ratings'),
+    path('search/', views.search_movies, name='search_movies'),  # Add this line for the search page
+    path('admin_creation_page/', views.add_movie, name='admin_creation_page'),
 ]

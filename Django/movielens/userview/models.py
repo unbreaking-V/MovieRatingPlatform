@@ -25,6 +25,5 @@ class Rating(models.Model):
 
 class Comments(models.Model):
     comment = models.CharField()
-    timestamp = models.DateTimeField(auto_now_add=True)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
